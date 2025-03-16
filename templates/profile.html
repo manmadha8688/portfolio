@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Wanted Poster</title>
+    <style>
+        .profile {
+            position: relative;
+            width: 250px; /* Adjust size as needed */
+            height: 400px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 2s ease-in-out;
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            background: url("{% static 'images/mystery1.jpg' %}") no-repeat center/cover;
+            
+            border-radius: 25px;
+        }
+
+        .back {
+            background: url("{% static 'images/wanted-sparrow.jpg' %}") no-repeat center/cover;
+            transform: rotateY(180deg);
+            filter: blur(10px); /* Initially blurred */
+            transition: filter 0.3s ease-in-out; /* Smooth blur removal */
+        }
+
+        /* Coin Flip Effect */
+        .profile:hover .flip-card {
+            animation: coinFlip 0.3s ease-in-out forwards;
+        }
+
+        @keyframes coinFlip {
+            0% { transform: rotateY(0deg); }
+            20% { transform: rotateY(180deg); }
+            40% { transform: rotateY(360deg); }
+            60% { transform: rotateY(540deg); }
+            80% { transform: rotateY(720deg); }
+            100% { transform: rotateY(900deg); }
+        }
+
+        .profile:hover .back {
+            filter: blur(0px); /* Remove blur after flip */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile">
+        <div class="flip-card">
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
+    </div>
+
+</body>
+</html>

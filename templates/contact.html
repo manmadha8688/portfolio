@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        
+        .contact-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            max-width: 1200px;
+            margin: auto;
+            margin-bottom: 10%;
+        }
+        .contact-left {
+            max-width: 50%;
+        
+        }
+        .contact-left h2 {
+            
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .contact-left p {
+            margin: 15px 0;
+            list-style: none;
+            font-size: 20px;
+        }
+        .contact-left .info {
+            margin: 10px 0;
+        }
+        .contact-left .info i {
+            margin-right: 10px;
+            color: #f97316;
+        }
+        .social-icon {
+            margin-top: 30px;
+        }
+        .social-icon a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: #222;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .contact-right {
+            background: #222;
+            padding: 30px;
+            border-radius: 10px;
+            width: 45%;
+            height: 100%;
+            
+        }
+        
+        .contact-right input, .contact-right textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            background: #333;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            
+        }
+        .contact-right label{
+            color: lightgray;
+            
+
+        }
+        .contact-right button {
+            width: 100%;
+            padding: 12px;
+            background: #f97316;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .contact-left .info .details{
+            margin-left: 10%;
+        }
+        .contact-section span{
+            writing-mode: vertical-rl; 
+            transform: rotate(180deg);
+            letter-spacing: 2px; 
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .direction{
+            background-color: #0a43e1;
+             color: white; 
+             padding: 5px 10px; 
+             border: none;
+              border-radius: 5px;
+               cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="contact-section">
+        <span>
+            ----------  CONTACT ME  ----------
+        </span>
+        
+        <div class="contact-left">
+            <h2>If you like what you see,<br>
+                 let's work together 🤝</h2>
+                 <br>
+            <p>Get in touch and let me know how I can help. Fill out the form and I’ll be in touch as soon as possible.</p>
+            <div class="info">
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong></p> 
+                 <p class="details">Thokalapalli village ,nidamarru mandal ,eleuru district ,andhra pradesh  534406
+                    <br><br><a href="https://www.google.com/maps/place/Thokalapalle,+Andhra+Pradesh/@16.7440851,81.3329253,6078m" target="_blank">
+                        <button class="direction" >
+                            📍 Get Directions
+                        </button>
+                    </a>
+                    
+                 </p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> </p>
+                  <p class="details">  (+91)  8309623469 <br> (+91)  9346016624</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> </p>
+                  <p class="details">  manmadhajayamangala777@gmail.com</p>
+            </div>
+            <div class="social-icon">
+                <a ><i class="fab fa-facebook-f"></i></a>
+                <a ><i class="fab fa-twitter"></i></a>
+                <a ><i class="fab fa-linkedin-in"></i></a>
+                <a ><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="contact-right">
+            
+            <form action="{% url 'sendmail' %}" method="POST" class="form" id="contactform" target="_blank">
+                {% csrf_token %}
+            <label>Name</label>           
+            <input type="text" placeholder="e.g. John Doe" id="name" name="name" required>
+            <label>Email</label> 
+            <input type="email" placeholder="e.g johndoe@mail.com" id="email" name="email" required>
+            <label>phone </label> 
+            <input type="text" placeholder="Phone Number" id="phone" maxlength="10" name="phone" required>
+            <label>Message</label> 
+            <textarea rows="4" placeholder="Write message..." id="message" maxlength="100" name="message" required></textarea>
+            <button type="submit" onclick="submitForm()">SEND Email</button>
+        </form>
+
+        </div>
+    </section>
+    <script>
+        function submitForm() {
+            // Prevent form from submitting the default way
+            
+            const form = document.getElementById("contactform");
+            // Get form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const message = document.getElementById("message").value;
+    
+            // Validate data
+            if (!name || !email || !phone || !message) {
+                event.preventDefault();
+                alert("Please fill out all fields!");
+                return;
+            }
+            else {
+                const isconfirm = confirm("name :"+name+"\nphone :"+phone+"\nEmail :"+email+"\nmessasge :"+message)
+                if (!isconfirm) {
+                    alert("Message cancled....!!");
+                    return false; 
+                }
+                
+                return True;
+            }
+        }
+        
+    </script>
+</body>
+</html>
+

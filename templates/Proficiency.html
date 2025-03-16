@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proficiency</title>
+    
+    <style>
+        
+        .proficiency {
+            width: 80%;
+            margin: auto;
+            margin-top:8%;
+        }
+        .proficiency h1{
+            margin-bottom: 5%;
+
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #2c2f3f;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 18px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #a394f5;
+            animation: pulse 1.5s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1.1; }
+        }
+        
+        .proficiency p {
+            text-align: left;
+            font-size: 20px;
+            margin: 10px 0 5px;
+            font-family: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="proficiency">
+        <h1>Proficiency</h1>
+
+        <p>Programming</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: 65%;"></div>
+        </div>
+
+        <p>Frontend/Design</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: 80%;"></div>
+        </div>
+
+        <p>Backend</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+        </div>
+
+        
+        <p>Machine Learning</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: 40%;"></div>
+        </div>
+    </div>
+
+</body>
+</html>

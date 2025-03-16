@@ -1,0 +1,187 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        
+        .education-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 4%;
+            max-width: 1200px;
+        }
+
+        .animated-image {
+            
+            text-align: center;
+            width: 35%;
+        }
+
+        .animated-image img {
+            width: 40%;
+            width: 70%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .education-section {
+            flex: 1;
+            text-align: left;
+            width: 60%;           
+
+        }
+
+        .education-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .edu-icon1 {
+            font-size: 30px;
+            color: #f97316;
+            padding-right: 2%;
+        }
+        .edu-icon2 {
+            font-size: 30px;
+            color: #f97316;
+            padding-right: 2%;
+        }
+        .edu-icon3 {
+            font-size: 30px;
+            color: #f97316;
+            padding-right: 5%;
+        }
+
+
+
+        .edu-content h3 {
+            font-size: 22px;
+            margin: 0;
+            color: #f97316;
+        }
+
+        .expand-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            text-align: left;
+        }
+
+        .education-box:hover .expand-content {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 10px;
+        }
+        .education{
+            margin-bottom: 5%;
+            margin-top:7%;
+            padding-left:10%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="education">Education</h1>
+    
+    <div class="education-container">
+        
+        <div class="animated-image">
+            
+            <img src="{% static 'images/hokage.png'%}" alt="Animated Degree">
+        </div>
+        <section class="education-section">
+            
+            
+        <!-- B.Tech Section -->
+        <div class="education-box">
+            <div class="education-header">
+                <div class="edu-icon1">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="edu-content">
+                    <h3>B.Tech in Computer Science & Engineering</h3>
+                    <p><strong>Bapatla Engineering College (Autonomous)</strong> | 2021 - 2025</p>
+                    <p>Specialized in Full Stack Development with expertise in modern web technologies.</p>
+                </div>
+                <i class="fas fa-chevron-down" style="color: #f97316;"></i>
+            </div>
+
+            <div class="expand-content">
+                <p>Bapatla Engineering College (BEC) is a private engineering college established in 1981, sponsored by the Bapatla Education Society. It offers courses in technology and science, including information technology, machine learning, and data science.</p>
+                <p>📍 Located in Bapatla, Andhra Pradesh</p><br>
+                <p>🌐 <a href="https://becbapatla.ac.in/" target="_blank">Visit College Website</a></p><br>
+                <img src="{% static 'images/bapatla college.jpg'%}" alt="Bapatla Engineering College" class="edu-image">
+            </div>
+        </div>
+        
+        <!-- Intermediate Section -->
+        <div class="education-box">
+            <div class="education-header">
+                <div class="edu-icon2">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="edu-content">
+                    <h3>Intermediate (MPC)</h3>
+                    <p><strong>Sri Bharathi Junior College, Eluru</strong> | 2019 - 2021</p>
+                    <p>Focused on Mathematics, Physics, and Chemistry, strengthening analytical and <br>problem-solving skills.</p>
+                </div>
+                <i class="fas fa-chevron-down" style="color: #f97316;"></i>
+            </div>
+
+            <div class="expand-content">
+                <p>Sri Bharathi Junior College is a well-established institution in Eluru known for its rigorous academic curriculum in Mathematics, Physics, and Chemistry.</p>
+                <p>📍 Eluru, Andhra Pradesh</p>
+                <p>📞 Contact: 08812 - 249225</p>
+                <p>📧 Email: avijaykumarsb@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- School Section -->
+        <div class="education-box">
+            <div class="education-header">
+                <div class="edu-icon3">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="edu-content">
+                    <h3>Secondary Education (10th Grade)</h3>
+                    <p><strong>Siddhartha Vidyalaya, Satrampadu, Eluru</strong> | 2019</p>
+                    <p>Completed foundational education with a focus on core subjects, developing a strong academic base.</p>
+                </div>
+                <i class="fas fa-chevron-down" style="color: #f97316;"></i>
+            </div>
+
+            <div class="expand-content">
+                <p>KPR & JL Siddhartha Vidyalaya is a reputed school located in Satrampadu, Eluru, known for academic excellence and student development.</p>
+                <p>📍 Satrampadu, Eluru, Andhra Pradesh</p><br>
+                <p>🌐 <a href="https://school.careers360.com/schools/siddhartha-quest-school-eluru" target="_blank">Visit School Website</a></p><br>
+                <img src="{%static 'images/school.jpg'%}" alt="Siddhartha Vidyalaya" class="edu-image">
+            </div>
+        </div>
+
+    </section>
+    </div>
+</body>
+</html>

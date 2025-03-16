@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        /* Fullscreen Loader */
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), 
+                        url("{% static 'images/saringon5.jpg' %}") no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+
+        /* Sharingan Image */
+        #sharingan {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Spinning Effect */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Title Animation */
+        #title {
+            margin-top: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader with Sharingan and Titles -->
+    <div id="loader">
+        <div id="sharingan"></div>
+        <div id="title">Loading...</div>
+    </div>
+    
+    <!-- Page Content (Hidden Initially) -->
+    <div id="content" style="display: none;">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sharingan = document.getElementById("sharingan");
+            const title = document.getElementById("title");
+
+            const images = [
+                "{% static 'images/saringon1.jpeg' %}",
+                "{% static 'images/saringon2.jpeg' %}",
+                "{% static 'images/saringon3.jpeg' %}",
+                "{% static 'images/saringon4.jpeg' %}",
+                "{% static 'images/saringon5.jpg' %}", // This will NOT rotate
+            ];
+
+            const titles = [
+                "Awakening the Sharingan...",
+                "Decoding Chakra Flow...",
+                "Unleashing Genjutsu...",
+                "The Power of Uchiha Unleashed...",
+                "A Glimpse into the World I Built..."
+            ];
+
+            let index = 0;
+
+            // 🔥 Set First Image & Title Instantly
+            sharingan.style.backgroundImage = `url(${images[0]})`;
+            title.innerText = titles[0];
+            title.style.opacity = 1;
+
+            // Change Sharingan Image & Title Every 1 Second
+            const interval = setInterval(() => {
+                index++;
+
+                if (index < 4) {
+                    sharingan.style.backgroundImage = `url(${images[index]})`;
+                    sharingan.style.animation = "spin 2s linear infinite"; // Rotate first 4 images
+                } else {
+                    sharingan.style.backgroundImage = `url(${images[4]})`;
+                    sharingan.style.animation = "none"; // STOP rotation on 5th image
+                }
+
+                title.style.opacity = 0; // Fade out old text
+                setTimeout(() => {
+                    title.innerText = titles[index];
+                    title.style.opacity = 1; // Fade in new text
+                }, 1000);
+            }, 1000);
+
+            // Hide Loader After 5 Seconds
+            setTimeout(() => {
+                clearInterval(interval);
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            }, 5000);
+        });
+        setTimeout(() => {
+            window.location.href = "{% url 'portfolio' %}"; // Change this to your homepage URL
+        }, 5000);
+    </script>
+
+</body>
+</html>

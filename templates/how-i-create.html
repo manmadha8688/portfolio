@@ -1,0 +1,151 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I Do - Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css">
+    
+    <style>
+        
+        .light-theme {
+            background: white;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            align-items: center;
+            justify-content: space-between;
+            width: 95%;
+            margin-left: 5%;
+            margin-top: -25px;
+
+        }
+
+        .left {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .left img {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .right {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .container .right h1 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .right p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        .tech-icons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        font-size: 40px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .tech-icons div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 16px;
+        color: inherit;
+    }
+
+    .tech-icons p {
+        margin-top: 8px;
+    }
+
+        .features {
+            list-style: none;
+            font-size: 20px;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+        }
+
+        .features li::before {
+            content: "⚡";
+            margin-right: 5px;
+            color: #f5a623;
+        }
+    </style>
+</head>
+<body>
+       
+    
+    <div class="container" >
+        
+        <div class="left">
+            <img src="{% static 'images/code.gif'%}" alt="Developer Illustration">
+        </div>
+        
+        <div class="right">
+            
+            <h1 >How i create</h1>
+            <p>Crazy Full Stack Developer exploring various tech stacks.</p>
+            
+           <!-- Tech Stack Icons -->
+<div class="tech-icons">
+    <div>
+        <i class="devicon-html5-plain colored"></i>
+        <p>HTML</p>
+    </div>
+    <div>
+        <i class="devicon-css3-plain colored"></i>
+        <p>CSS</p>
+    </div>
+    <div>
+        <i class="devicon-javascript-plain colored"></i>
+        <p>JavaScript</p>
+    </div>
+    <div>
+        <i class="devicon-django-plain colored"></i>
+        <p>Django</p>
+    </div>
+    <div>
+        <i class="devicon-mysql-plain colored"></i>
+        <p>MySQL</p>
+    </div>
+    <div>
+        <i class="devicon-amazonwebservices-original colored"></i>
+        <p>AWS</p>
+    </div>
+    <div>
+        <i class="devicon-docker-plain colored"></i>
+        <p>Docker</p>
+    </div>
+    
+</div>
+
+
+
+            <ul class="features">
+                <li>Develop highly interactive Frontend/User Interfaces for web and mobile applications, 
+                    blending technology and creativity to build scalable, efficient, and user-friendly experiences.</li>
+                <li>Build Progressive Web Applications (PWA) using SPA architecture.</li>
+                <li> From designing intuitive frontends to architecting robust backends, I bring ideas to life with clean code and modern frameworks.</li>
+                <li>Integrate ML models & third-party services into my projects for enhanced functionality and automation.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

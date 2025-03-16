@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Hero Section</title>
+    <style>
+       
+        .about {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 150px;
+            
+        }
+        .hero-content {
+            max-width: 60%;
+        }
+        .hero-title {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .hero-buttons {
+            margin-top: 40px;
+        }
+        .hero-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #ff4c60;
+            color: white;
+            margin-left: 20%;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .hero-content h3{
+            margin-top: 25px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 22px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="about">
+        <!-- Left Side Content -->
+        <div class="hero-content">
+            <h1 class="hero-title">Hey there! 👋</h1>
+            <h3>I am a passionate Full Stack Software Developer 🚀 with experience in
+                 building Web and Mobile applications using JavaScript, Django, and other modern frameworks.
+                 I specialize in creating scalable and efficient applications,
+                  integrating AI models, and working with real-time data processing.</h3>
+            <div class="hero-buttons">
+                <a href="#contact-me"><button class="btn-primary">Contact Me</button></a>
+                <button class="btn-secondary">Download Resume</button>
+            </div>
+        </div>
+
+        <!-- Right Side GIF Animation -->
+        <div class="hero-animation">
+            {% include 'profile.html'%}
+        </div>
+    </div>
+    
+</body>
+</html>
