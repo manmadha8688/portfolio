@@ -18,7 +18,7 @@ EMAIL_HOST = 'smtp.gmail.com'  # Change if using another provider
 EMAIL_PORT = 587  # Use 465 for SSL
 EMAIL_USE_TLS = True  # Use SSL if port is 465
 
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'your-email@gmail.com')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'manmadhajayamangala777@gmail.com')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
