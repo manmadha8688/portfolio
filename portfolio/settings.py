@@ -18,7 +18,7 @@ EMAIL_HOST = 'smtp.gmail.com'  # Change if using another provider
 EMAIL_PORT = 587  # Use 465 for SSL
 EMAIL_USE_TLS = True  # Use SSL if port is 465
 
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'your-email@gmail.com')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'manmadhajayamangala777@gmail.com')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -35,7 +35,29 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8nr9a_qfz((#+&f8&fke*^2-w!&d&*ca#ts=d+7@0c2-sfgzh4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+import os
+
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+if not DEBUG:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'file': {
+                'level': 'ERROR',
+                'class': 'logging.FileHandler',
+                'filename': 'django_errors.log',
+            },
+        },
+        'loggers': {
+            'django': {
+                'handlers': ['file'],
+                'level': 'ERROR',
+                'propagate': True,
+            },
+        },
+    }
 
 ALLOWED_HOSTS = ["*"]
 
@@ -89,12 +111,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
 
 
 # Password validation
