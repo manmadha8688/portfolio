@@ -34,7 +34,7 @@ def sendmail(request):
             return render(request, "success.html", {"open_new_tab": True})
         except Exception as e:
             messages.info(request, "Failed to send email. Please try again later.")
-            return redirect(request.META.get('HTTP_REFERER', '/'))  # Redirect back to the form
+            return render(request, "failure.html", {"open_new_tab": True})
         
 def success(request):
     return render(request, 'success.html')

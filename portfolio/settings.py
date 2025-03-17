@@ -37,30 +37,10 @@ SECRET_KEY = 'django-insecure-8nr9a_qfz((#+&f8&fke*^2-w!&d&*ca#ts=d+7@0c2-sfgzh4
 # SECURITY WARNING: don't run with debug turned on in production!
 import os
 
-DEBUG = True
+DEBUG = False
+ALLOWED_HOSTS = ['manmadha-portfolio.onrender.com']
 
 
-if not DEBUG:
-    LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'handlers': {
-            'file': {
-                'level': 'ERROR',
-                'class': 'logging.FileHandler',
-                'filename': 'django_errors.log',
-            },
-        },
-        'loggers': {
-            'django': {
-                'handlers': ['file'],
-                'level': 'ERROR',
-                'propagate': True,
-            },
-        },
-    }
-
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
